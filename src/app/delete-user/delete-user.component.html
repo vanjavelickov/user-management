@@ -1,0 +1,13 @@
+ <form [formGroup]="form" *ngIf="form" (ngSubmit)="delete()">
+  <h1 mat-dialog-title>{{data.dialogTitle}}</h1>
+   <!-- Delete -->
+   <div mat-dialog-actions class="actionBtnAlign">
+     <button color="warn" mat-flat-button type="submit">
+       Delete
+     </button>
+     <!-- Cancel -->
+     <button mat-flat-button type="button" color="primary" [mat-dialog-close]>
+       Cancel
+     </button>
+   </div>
+ </form>

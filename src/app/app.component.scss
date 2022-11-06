@@ -1,0 +1,46 @@
+table {
+  width: 70%;
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+
+.table-block {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+.page {
+  position: absolute;
+  width: 80%;
+  top: 10%;
+  left: 10%;
+  background-color: #e4e3e3;
+}
+
+.toolbar {
+  justify-content: center;
+  display: flex;
+
+  &__center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.newUser {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1%;
+}
+
+.green-color {
+  color: #07a895;
+}
