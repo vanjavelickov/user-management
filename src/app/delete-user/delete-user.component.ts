@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -37,12 +38,12 @@ export class DeleteUserComponent implements OnInit {
   public delete(): void {
     this.userService.deleteUser(this.data.dialogElementValue).subscribe(
       {
-        next: (response: any) => {
-          console.log('User is deleted');
+        next: () => {
+          alert('User is deleted');
           this.dialogRef.close();
         },
-        error: (err: Error) => {
-          console.log(err);
+        error: (err: HttpErrorResponse) => {
+          alert(this.userService.handleError(err));
           this.dialogRef.close();
         }
       }

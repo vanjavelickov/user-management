@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatDatepickerModule,
     MatToolbarModule,
     MatCardModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [
     MatTableModule,
@@ -35,6 +39,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatDatepickerModule,
     MatToolbarModule,
     MatCardModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
 })
 export class MaterialModule {}

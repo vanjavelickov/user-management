@@ -2,16 +2,11 @@ table {
   width: 70%;
 }
 
-th.mat-header-cell {
-  text-align: center;
-}
-
-td {
-  text-align: center;
-}
-
 .table-block {
   display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
   justify-content: center;
   padding: 1%;
 }
@@ -43,4 +38,8 @@ td {
 
 .green-color {
   color: #07a895;
+}
+
+mat-paginator {
+  width: 70%;
 }

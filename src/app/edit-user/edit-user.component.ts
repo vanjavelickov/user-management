@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -46,8 +47,8 @@ export class EditUserComponent implements OnInit {
           Validators.maxLength(15),
         ],
       ],
-      email: [{ disabled: true, value: user.email }],
-      dateOfBirth: [{ disabled: true, value: user.dateOfBirth }],
+      email: [user.email, [Validators.required, Validators.email]],
+      dateOfBirth: [user.dateOfBirth? user.dateOfBirth : ''],
     });
   }
 
@@ -57,17 +58,18 @@ export class EditUserComponent implements OnInit {
         firstName: this.form.value.firstName,
         lastName: this.form.value.lastName,
         id: this.user.id,
-        email: this.user.email,
-        dateOfBirth: this.user.dateOfBirth,
+        email: this.form.value.email,
+        dateOfBirth: this.form.value.dateOfBirth,
       })
       .subscribe({
         next: () => {
+          alert('User is updated')
           this.dialogRef.close();
         },
-        error: (err) => {
-          console.log(err);
+        error: (err: HttpErrorResponse) => {
+          alert(this.userService.handleError(err));
           this.dialogRef.close();
         },
       });
-  }
+    }
 }

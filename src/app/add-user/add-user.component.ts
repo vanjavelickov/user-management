@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -53,13 +54,12 @@ export class AddUserComponent implements OnInit {
         this.form.value.dateOfBirth
       )
       .subscribe({
-        next: (response: any) => {
-          console.log(response);
+        next: () => {
           alert('User added');
           this.dialogRef.close();
         },
-        error: (err: Error) => {
-          console.log(err);
+        error: (err: HttpErrorResponse) => {
+          alert(this.userService.handleError(err));
           this.dialogRef.close();
         },
       });
